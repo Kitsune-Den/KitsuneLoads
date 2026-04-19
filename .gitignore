@@ -1,0 +1,20 @@
+# build artifacts
+build/bin/
+build/obj/
+
+# compiled mod output (rebuilt from source)
+KitsuneLoads/KitsuneLoads.dll
+KitsuneLoads/KitsuneLoads.pdb
+
+# release zips (go on GitHub Releases, not in the repo)
+*.zip
+
+# dev environment
+.vs/
+.vscode/
+.idea/
+*.user
+*.suo
+
+# Claude Code local settings (per-machine permission approvals)
+.claude/

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xml>
+    <Name value="KitsuneLoads" />
+    <DisplayName value="Kitsune Loads" />
+    <Version value="1.0.0" />
+    <Description value="Rotating custom loading screen backgrounds. Picks a random image every time the loading screen appears." />
+    <Author value="Ada" />
+    <Website value="" />
+</xml>
