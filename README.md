@@ -1,7 +1,11 @@
-# Kitsune Loads
+# KitsuneLoads
 
-Rotating custom loading-screen backgrounds for **7 Days to Die v2.6 (PC)**.
-Picks one of 13 images at random every time the loading screen appears.
+[![Download on Nexus Mods](https://img.shields.io/badge/Download-Nexus_Mods-da8e35?style=flat&logo=nexusmods&logoColor=white)](https://www.nexusmods.com/7daystodie/mods/10212)
+[![7 Days to Die v2.6](https://img.shields.io/badge/7_Days_to_Die-v2.6-8b0000?style=flat)](https://7daystodie.com)
+[![License](https://img.shields.io/github/license/Kitsune-Den/KitsuneLoads?style=flat)](LICENSE)
+[![GitHub stars](https://img.shields.io/github/stars/Kitsune-Den/KitsuneLoads?style=flat&logo=github)](https://github.com/Kitsune-Den/KitsuneLoads/stargazers)
+
+Rotating custom loading-screen backgrounds for **7 Days to Die v2.6 (PC)**. Picks one of 13 images at random every time the loading screen appears.
 
 Part of the Kitsune modpack.
 
