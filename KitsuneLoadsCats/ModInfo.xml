@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xml>
+    <Name value="KitsuneLoadsCats" />
+    <DisplayName value="Kitsune Loads ~ Cats of 7 Days" />
+    <Version value="1.0.0" />
+    <Description value="Cat-themed loading screen pack. 13 hand-picked cat images rotate at random every time the loading screen appears. Mutually exclusive with KitsuneLoads ~ install one or the other." />
+    <Author value="AdaInTheLab" />
+    <Website value="https://github.com/Kitsune-Den/KitsuneLoads" />
+</xml>

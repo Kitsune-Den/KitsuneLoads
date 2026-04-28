@@ -1,0 +1,5 @@
+<configs>
+    <!-- Disable the vanilla 16:9 aspect lock on the loading screen background so our 1920x1080
+         images stretch to fill the full anchor rect (~2.33:1) instead of pillarboxing. -->
+    <set xpath="/windows/window[@name='loadingScreen']/texture[@name='loading_image']/@original_aspect_ratio">false</set>
+</configs>

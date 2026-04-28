@@ -5,6 +5,8 @@ build/obj/
 # compiled mod output (rebuilt from source)
 KitsuneLoads/KitsuneLoads.dll
 KitsuneLoads/KitsuneLoads.pdb
+KitsuneLoadsCats/KitsuneLoads.dll
+KitsuneLoadsCats/KitsuneLoads.pdb
 
 # release zips (go on GitHub Releases, not in the repo)
 *.zip
@@ -18,3 +20,7 @@ KitsuneLoads/KitsuneLoads.pdb
 
 # Claude Code local settings (per-machine permission approvals)
 .claude/
+
+# scratch / source folders not part of the shipped mod
+.firecrawl/
+Cats of  7 Days/

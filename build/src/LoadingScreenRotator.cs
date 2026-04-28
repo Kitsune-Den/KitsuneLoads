@@ -12,6 +12,7 @@ namespace KitsuneLoads
         {
             Debug.Log("[KitsuneLoads] Init starting");
 
+            LoadingScreenRotator.ModName = _modInstance.Name;
             LoadingScreenRotator.ResourceDir = Path.Combine(_modInstance.Path, "Resources");
             LoadingScreenRotator.CacheTextures();
 
@@ -30,24 +31,8 @@ namespace KitsuneLoads
 
     public static class LoadingScreenRotator
     {
+        public static string ModName;
         public static string ResourceDir;
-
-        public static readonly string[] ImageFiles =
-        {
-            "burned_forest_ruins.png",
-            "desert_highway_wrecks.png",
-            "desert_schoolbus.png",
-            "feral_wolf.png",
-            "infected_vulture.png",
-            "overgrown_city_street.png",
-            "ruined_city_skyline.png",
-            "screamer_zombie.png",
-            "snow_cougar.png",
-            "snowy_outpost_camp.png",
-            "wooden_fortress.png",
-            "zombie_cop.png",
-            "zombie_skull_face.png",
-        };
 
         private static readonly List<Texture2D> Cache = new List<Texture2D>();
         private static readonly System.Random Rand = new System.Random();
@@ -55,27 +40,31 @@ namespace KitsuneLoads
         public static void CacheTextures()
         {
             Cache.Clear();
-            foreach (var file in ImageFiles)
+
+            if (!Directory.Exists(ResourceDir))
             {
-                var path = Path.Combine(ResourceDir, file);
-                if (!File.Exists(path))
-                {
-                    Debug.LogWarning($"[KitsuneLoads] Missing image: {path}");
-                    continue;
-                }
+                Debug.LogWarning($"[KitsuneLoads] Resources directory not found: {ResourceDir}");
+                return;
+            }
+
+            var files = Directory.GetFiles(ResourceDir, "*.png");
+            Array.Sort(files, StringComparer.OrdinalIgnoreCase);
+
+            foreach (var path in files)
+            {
                 var bytes = File.ReadAllBytes(path);
                 var tex = new Texture2D(2, 2, TextureFormat.RGBA32, false);
                 if (tex.LoadImage(bytes))
                 {
-                    tex.name = Path.GetFileNameWithoutExtension(file);
+                    tex.name = Path.GetFileNameWithoutExtension(path);
                     Cache.Add(tex);
                 }
                 else
                 {
-                    Debug.LogWarning($"[KitsuneLoads] Failed to decode: {file}");
+                    Debug.LogWarning($"[KitsuneLoads] Failed to decode: {Path.GetFileName(path)}");
                 }
             }
-            Debug.Log($"[KitsuneLoads] Cached {Cache.Count} loading-screen textures");
+            Debug.Log($"[KitsuneLoads] Cached {Cache.Count} loading-screen textures from {ResourceDir}");
         }
 
         public static Texture2D PickRandom()
@@ -95,7 +84,7 @@ namespace KitsuneLoads
             var pick = LoadingScreenRotator.PickRandom();
             if (pick == null) return;
             LoadingScreenRotator.CurrentPickName = pick.name;
-            Debug.Log($"[KitsuneLoads] OnOpen — rolled '{pick.name}'");
+            Debug.Log($"[KitsuneLoads] OnOpen ~ rolled '{pick.name}'");
         }
     }
 
@@ -111,7 +100,7 @@ namespace KitsuneLoads
             var name = LoadingScreenRotator.CurrentPickName;
             if (string.IsNullOrEmpty(name)) return true;
 
-            _value = $"@modfolder(KitsuneLoads):Resources/{name}.png";
+            _value = $"@modfolder({LoadingScreenRotator.ModName}):Resources/{name}.png";
             __result = true;
 
             if (!_loggedOnce)

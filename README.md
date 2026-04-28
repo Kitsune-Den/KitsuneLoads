@@ -5,9 +5,19 @@
 [![License](https://img.shields.io/github/license/Kitsune-Den/KitsuneLoads?style=flat)](LICENSE)
 [![GitHub stars](https://img.shields.io/github/stars/Kitsune-Den/KitsuneLoads?style=flat&logo=github)](https://github.com/Kitsune-Den/KitsuneLoads/stargazers)
 
-Rotating custom loading-screen backgrounds for **7 Days to Die v2.6 (PC)**. Picks one of 13 images at random every time the loading screen appears.
+Rotating custom loading-screen backgrounds for **7 Days to Die v2.6 (PC)**.
+Drop any PNGs into `Resources/` and they get picked up at startup ~ a random
+one shows every time the loading screen appears.
 
 Part of the Kitsune modpack.
+
+## Themes
+
+- **`KitsuneLoads`** ~ default zombies & wasteland set (13 images)
+- **`KitsuneLoadsCats`** ~ "Cats of 7 Days" alternate pack (13 cat images)
+
+Install one or the other ~ they patch the same Harmony method, so they conflict
+if both are present. Pick a vibe.
 
 ## Install
 
@@ -29,13 +39,17 @@ KitsuneLoads/
 │   └── XUi_Menu/
 │       └── windows.xml      # XML patch: disables aspect-lock on loading_image
 └── Resources/
-    └── *.png                # 13 loading-screen images (1920x1080)
+    └── *.png                # any PNGs ~ scanned at startup (1920x1080 recommended)
 ```
 
 ## How it works
 
+- At init, the DLL scans `<modfolder>/Resources/*.png` and caches every image it finds.
+  Want to add your own? Drop a PNG in, restart, done.
 - The DLL patches `XUiC_LoadingScreen.GetBindingValueInternal` to intercept the
-  `{background_texture}` binding and return a random `@modfolder(KitsuneLoads):Resources/<file>.png`.
+  `{background_texture}` binding and return a random `@modfolder(<modname>):Resources/<file>.png`.
+  The modfolder name comes from `_modInstance.Name` so the same DLL works in any mod folder
+  (e.g. `KitsuneLoads/` or `KitsuneLoadsCats/`).
 - The XML patch flips `original_aspect_ratio="true"` to `false` on the `loading_image`
   texture so 1920×1080 source images fill the full loading-screen rect (~2.33:1)
   without pillar-bars.
