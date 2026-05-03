@@ -15,9 +15,10 @@ Part of the Kitsune modpack.
 
 - **`KitsuneLoads`** ~ default zombies & wasteland set (13 images)
 - **`KitsuneLoadsCats`** ~ "Cats of 7 Days" alternate pack (13 cat images)
+- **`KitsuneSquared`** ~ best-of-both remix blending zombies + cats (14 images)
 
-Install one or the other ~ they patch the same Harmony method, so they conflict
-if both are present. Pick a vibe.
+Install one or the other ~ they all patch the same Harmony method, so they
+conflict if more than one is present. Pick a vibe.
 
 ## Install
 
