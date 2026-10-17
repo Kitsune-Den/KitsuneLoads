@@ -10,7 +10,7 @@
     <OutputType>Library</OutputType>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
     <!-- Point to your 7DTD install. Override via: dotnet build /p:SdtdPath="..." -->
-    <SdtdPath Condition="'$(SdtdPath)' == ''">F:\SteamLibrary\steamapps\common\7 Days To Die</SdtdPath>
+    <SdtdPath Condition="'$(SdtdPath)' == ''">G:\SteamLibrary\steamapps\common\7 Days To Die</SdtdPath>
     <SdtdManaged>$(SdtdPath)\7DaysToDie_Data\Managed</SdtdManaged>
   </PropertyGroup>
 

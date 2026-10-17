@@ -1,5 +1,11 @@
 <configs>
-    <!-- Disable the vanilla 16:9 aspect lock on the loading screen background so our 1920x1080
-         images stretch to fill the full anchor rect (~2.33:1) instead of pillarboxing. -->
-    <set xpath="/windows/window[@name='loadingScreen']/texture[@name='loading_image']/@original_aspect_ratio">false</set>
+    <!-- Turn off the 16:9 aspect lock on the loading screen picture so our images fill the
+         whole rect (~2.33:1) instead of pillarboxing. V3.x renamed the attribute from
+         original_aspect_ratio to keepsourceaspectratio. KitsuneUI moves the picture into an
+         oversized rect that relies on the lock to crop, so leave it alone when that's loaded. -->
+    <conditional>
+        <if cond="not mod_loaded('KitsuneUI')">
+            <set xpath="/windows/window[@name='loadingScreen']/texture[@name='loading_image']/@keepsourceaspectratio">false</set>
+        </if>
+    </conditional>
 </configs>

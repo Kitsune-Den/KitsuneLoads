@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using HarmonyLib;
 using UnityEngine;
 
@@ -14,7 +15,7 @@ namespace KitsuneLoads
 
             LoadingScreenRotator.ModName = _modInstance.Name;
             LoadingScreenRotator.ResourceDir = Path.Combine(_modInstance.Path, "Resources");
-            LoadingScreenRotator.CacheTextures();
+            LoadingScreenRotator.ScanImages();
 
             try
             {
@@ -33,13 +34,18 @@ namespace KitsuneLoads
     {
         public static string ModName;
         public static string ResourceDir;
+        public static string CurrentPick;
 
-        private static readonly List<Texture2D> Cache = new List<Texture2D>();
+        private static readonly string[] Extensions = { ".png", ".jpg", ".jpeg" };
+        private static readonly List<string> Files = new List<string>();
+        private static readonly List<string> Bag = new List<string>();
         private static readonly System.Random Rand = new System.Random();
 
-        public static void CacheTextures()
+        // Only the file names are kept ~ the game loads the picture itself from the
+        // @modfolder path, so nothing gets decoded into memory up front.
+        public static void ScanImages()
         {
-            Cache.Clear();
+            Files.Clear();
 
             if (!Directory.Exists(ResourceDir))
             {
@@ -47,68 +53,67 @@ namespace KitsuneLoads
                 return;
             }
 
-            var files = Directory.GetFiles(ResourceDir, "*.png");
-            Array.Sort(files, StringComparer.OrdinalIgnoreCase);
+            Files.AddRange(Directory.GetFiles(ResourceDir)
+                .Where(p => Extensions.Contains(Path.GetExtension(p).ToLowerInvariant()))
+                .Select(Path.GetFileName)
+                .OrderBy(n => n, StringComparer.OrdinalIgnoreCase));
 
-            foreach (var path in files)
+            Debug.Log($"[KitsuneLoads] Found {Files.Count} loading-screen images in {ResourceDir}");
+        }
+
+        // Shuffle-bag pick ~ every image shows once before any repeats.
+        public static string PickNext()
+        {
+            if (Files.Count == 0) return null;
+            if (Bag.Count == 0)
             {
-                var bytes = File.ReadAllBytes(path);
-                var tex = new Texture2D(2, 2, TextureFormat.RGBA32, false);
-                if (tex.LoadImage(bytes))
+                Bag.AddRange(Files.OrderBy(_ => Rand.Next()));
+                if (Bag.Count > 1 && Bag[0] == CurrentPick)
                 {
-                    tex.name = Path.GetFileNameWithoutExtension(path);
-                    Cache.Add(tex);
-                }
-                else
-                {
-                    Debug.LogWarning($"[KitsuneLoads] Failed to decode: {Path.GetFileName(path)}");
+                    Bag.Add(Bag[0]);
+                    Bag.RemoveAt(0);
                 }
             }
-            Debug.Log($"[KitsuneLoads] Cached {Cache.Count} loading-screen textures from {ResourceDir}");
+            var pick = Bag[0];
+            Bag.RemoveAt(0);
+            return pick;
         }
-
-        public static Texture2D PickRandom()
-        {
-            if (Cache.Count == 0) return null;
-            return Cache[Rand.Next(Cache.Count)];
-        }
-
-        public static string CurrentPickName;
     }
 
-    [HarmonyPatch(typeof(XUiC_LoadingScreen), "OnOpen")]
+    // V3.x dropped GetBindingValueInternal ~ {background_texture} is now the
+    // [XuiXmlBinding] property CurrentBackground. We roll a picture before vanilla's
+    // OnOpen runs its RefreshBindings, then answer the property getter with our path.
+    // Overriding the getter (rather than the currentBackground field) keeps our picture
+    // even when the server sends its own loadingscreen.xml or another mod re-rolls it.
+    [HarmonyPatch(typeof(XUiC_LoadingScreen), nameof(XUiC_LoadingScreen.OnOpen))]
     public static class LoadingScreen_OnOpen_Patch
     {
-        public static void Postfix(XUiC_LoadingScreen __instance)
+        public static void Prefix()
         {
-            var pick = LoadingScreenRotator.PickRandom();
+            var pick = LoadingScreenRotator.PickNext();
             if (pick == null) return;
-            LoadingScreenRotator.CurrentPickName = pick.name;
-            Debug.Log($"[KitsuneLoads] OnOpen ~ rolled '{pick.name}'");
+            LoadingScreenRotator.CurrentPick = pick;
+            Debug.Log($"[KitsuneLoads] OnOpen ~ rolled '{pick}'");
         }
     }
 
-    [HarmonyPatch(typeof(XUiC_LoadingScreen), "GetBindingValueInternal")]
-    public static class LoadingScreen_GetBindingValueInternal_Patch
+    [HarmonyPatch(typeof(XUiC_LoadingScreen), nameof(XUiC_LoadingScreen.CurrentBackground), MethodType.Getter)]
+    public static class LoadingScreen_CurrentBackground_Patch
     {
         private static bool _loggedOnce = false;
 
-        public static bool Prefix(ref bool __result, ref string _value, string _bindingName)
+        public static void Postfix(ref string __result)
         {
-            if (_bindingName != "background_texture") return true;
+            var name = LoadingScreenRotator.CurrentPick;
+            if (string.IsNullOrEmpty(name)) return;
 
-            var name = LoadingScreenRotator.CurrentPickName;
-            if (string.IsNullOrEmpty(name)) return true;
-
-            _value = $"@modfolder({LoadingScreenRotator.ModName}):Resources/{name}.png";
-            __result = true;
+            __result = $"@modfolder({LoadingScreenRotator.ModName}):Resources/{name}";
 
             if (!_loggedOnce)
             {
                 _loggedOnce = true;
-                Debug.Log($"[KitsuneLoads] Binding intercepted: background_texture -> '{_value}'");
+                Debug.Log($"[KitsuneLoads] Binding intercepted: background_texture -> '{__result}'");
             }
-            return false;
         }
     }
 }
