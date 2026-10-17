@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xml>
+    <Name value="KitsuneLoadsCats2" />
+    <DisplayName value="Kitsune Loads ~ Cats of 7 Days II" />
+    <Version value="2.0.0" />
+    <Description value="Cats of 7 Days, series two: the tabby is back and putting in the work. 12 widescreen scenes (forge, trader, minibike, airdrop, campfire, mine, library, horde night watch, gyrocopter, rooftop lookout, garden, ash walk) rotate at random every time the loading screen appears. Mutually exclusive with the other KitsuneLoads packs ~ install one or the other." />
+    <Author value="AdaInTheLab" />
+    <Website value="https://github.com/Kitsune-Den/KitsuneLoads" />
+</xml>

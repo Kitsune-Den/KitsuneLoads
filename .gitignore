@@ -9,6 +9,8 @@ KitsuneLoadsCats/KitsuneLoads.dll
 KitsuneLoadsCats/KitsuneLoads.pdb
 KitsuneSquared/KitsuneLoads.dll
 KitsuneSquared/KitsuneLoads.pdb
+KitsuneLoadsCats2/KitsuneLoads.dll
+KitsuneLoadsCats2/KitsuneLoads.pdb
 
 # release zips (go on GitHub Releases, not in the repo)
 *.zip
