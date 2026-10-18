@@ -95,3 +95,7 @@ When things go sideways, check `<userdatafolder>\output_log.txt` for lines tagge
 [KitsuneLoads] OnOpen ~ rolled '<image-name>.png'
 [KitsuneLoads] Binding intercepted: background_texture -> '@modfolder(KitsuneLoads):Resources/<image-name>.png'
 ```
+
+## License
+
+[CC BY-NC-SA 4.0](LICENSE), with an extra permission for servers that make money: see [NOTICE.md](NOTICE.md). In short: play it, change it and share it, with credit, not for sale, and with changed versions under the same license.
