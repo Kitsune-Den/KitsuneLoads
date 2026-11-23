@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xml>
+    <Name value="KitsuneLoadsSeasons" />
+    <DisplayName value="Kitsune Loads ~ Cats of 7 Days: Seasons" />
+    <Version value="2.1.0" />
+    <Description value="Cats of 7 Days, all year round: Kevin the tabby keeps the real-world calendar. Christmas pictures from November, Lunar New Year from January, then spring, summer and fall, 12 widescreen scenes each (60 in all). The picture set follows the date on your PC, and the dates can be changed in Resources/seasons.txt. Mutually exclusive with the other KitsuneLoads packs ~ install one or the other." />
+    <Author value="AdaInTheLab" />
+    <Website value="https://github.com/Kitsune-Den/KitsuneLoads" />
+</xml>

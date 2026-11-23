@@ -1,0 +1,17 @@
+# Which folder of pictures shows at which time of the real-world year.
+#
+#   Folder = from .. to
+#
+# Each end is a month-day (12-01 is 1 December) or a day counted from Lunar New Year
+# (lunar, lunar-7, lunar+15). Both ends are included, a range may run over the year
+# end, and the first line that covers today wins. On a day no line covers, every
+# picture is in the rotation.
+#
+# To preview a season, add a line like this one without the leading "#":
+# date = 2027-02-06
+
+Xmas   = 11-01 .. 12-31
+Lunar  = 01-01 .. lunar+15
+Spring = lunar+16 .. 05-31
+Summer = 06-01 .. 08-31
+Fall   = 09-01 .. 10-31
