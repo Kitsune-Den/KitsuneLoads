@@ -23,6 +23,8 @@ Part of the Kitsune modpack.
   the trader, the mine, on a minibike and in a gyrocopter (12 widescreen images)
 - **`KitsuneLoadsXmas`** ~ "Cats of 7 Days: Christmas": the tabby keeps Christmas in the snow
   while zombie Santa, the carolers and the rest of the horde try to join in (12 widescreen images)
+- **`KitsuneLoadsLunar`** ~ "Cats of 7 Days: Lunar New Year": Kevin the tabby sees in the new year
+  under red lanterns, with firecrackers, dumplings and a zombie lion dance (12 widescreen images)
 
 Install just one ~ they all patch the same Harmony method, so they
 conflict if more than one is present. Pick a vibe.

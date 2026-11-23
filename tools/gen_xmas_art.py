@@ -27,6 +27,7 @@ COMFY = os.environ.get("QWEN_STUDIO_URL", "http://127.0.0.1:8188")
 W, H = (int(v) for v in os.environ.get("XMAS_RENDER_SIZE", "2112x896").split("x"))
 FINAL = (3168, 1344)
 STEPS = 25
+PREFIX = "xmas"  # ComfyUI output name; gen_lunar_art.py swaps it
 
 # Same look and same tabby as Cats of 7 Days II, moved to deep winter. The cats are
 # alive and well; the zombies are the other cast. Never say "loading screen" in the
@@ -125,7 +126,7 @@ def graph(prompt, seed, prefix):
 def render(name):
     prompt = STYLE + SCENES[name]
     seed = random.randrange(2**31)
-    pid = json.loads(call("/prompt", {"prompt": graph(prompt, seed, f"kitsuneloads/xmas-{name}")}))["prompt_id"]
+    pid = json.loads(call("/prompt", {"prompt": graph(prompt, seed, f"kitsuneloads/{PREFIX}-{name}")}))["prompt_id"]
     t0 = time.time()
     while True:
         time.sleep(3)
