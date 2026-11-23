@@ -11,6 +11,8 @@ KitsuneSquared/KitsuneLoads.dll
 KitsuneSquared/KitsuneLoads.pdb
 KitsuneLoadsCats2/KitsuneLoads.dll
 KitsuneLoadsCats2/KitsuneLoads.pdb
+KitsuneLoadsXmas/KitsuneLoads.dll
+KitsuneLoadsXmas/KitsuneLoads.pdb
 
 # release zips (go on GitHub Releases, not in the repo)
 *.zip
@@ -29,3 +31,4 @@ KitsuneLoadsCats2/KitsuneLoads.pdb
 .firecrawl/
 Cats of  7 Days/
 Cats of 7 Days II/
+Cats of 7 Days Xmas/

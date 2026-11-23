@@ -21,6 +21,8 @@ Part of the Kitsune modpack.
 - **`KitsuneSquared`** ~ best-of-both remix blending zombies + cats (14 images)
 - **`KitsuneLoadsCats2`** ~ "Cats of 7 Days II": the tabby puts in the work at the forge,
   the trader, the mine, on a minibike and in a gyrocopter (12 widescreen images)
+- **`KitsuneLoadsXmas`** ~ "Cats of 7 Days: Christmas": the tabby keeps Christmas in the snow
+  while zombie Santa, the carolers and the rest of the horde try to join in (12 widescreen images)
 
 Install just one ~ they all patch the same Harmony method, so they
 conflict if more than one is present. Pick a vibe.

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xml>
+    <Name value="KitsuneLoadsXmas" />
+    <DisplayName value="Kitsune Loads ~ Cats of 7 Days: Christmas" />
+    <Version value="2.0.0" />
+    <Description value="Cats of 7 Days, the holiday special: the tabby keeps Christmas while the zombies try to join in. 12 widescreen scenes (zombie Santa at the window, scrap tree, stockings, minibike sleigh, trader, gift-wrapped airdrop, frozen snowman, carolers at the gate, chimney, Christmas feast, horde night, gyrocopter) rotate at random every time the loading screen appears. Mutually exclusive with the other KitsuneLoads packs ~ install one or the other." />
+    <Author value="AdaInTheLab" />
+    <Website value="https://github.com/Kitsune-Den/KitsuneLoads" />
+</xml>
