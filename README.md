@@ -25,6 +25,8 @@ Part of the Kitsune modpack.
   while zombie Santa, the carolers and the rest of the horde try to join in (12 widescreen images)
 - **`KitsuneLoadsLunar`** ~ "Cats of 7 Days: Lunar New Year": Kevin the tabby sees in the new year
   under red lanterns, with firecrackers, dumplings and a zombie lion dance (12 widescreen images)
+- **`KitsuneLoadsSpring`** ~ "Cats of 7 Days: Spring": Kevin enjoys the thaw, the blossoms and a
+  hilltop picnic while the wasteland turns green and the zombies get in the way (12 widescreen images)
 
 Install just one ~ they all patch the same Harmony method, so they
 conflict if more than one is present. Pick a vibe.
