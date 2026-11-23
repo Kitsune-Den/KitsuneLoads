@@ -31,6 +31,8 @@ Part of the Kitsune modpack.
   lake and by the campfire while the zombies cook in the sun (12 widescreen images)
 - **`KitsuneLoadsFall`** ~ "Cats of 7 Days: Fall": Kevin pounces through the leaves, guards the pumpkins and
   eyes the harvest feast while the zombies stumble into the season (12 widescreen images)
+- **`KitsuneLoadsSeasons`** ~ "Cats of 7 Days: Seasons": the five seasonal sets in one pack, shown by the
+  real-world calendar (60 widescreen images, see [Seasons](#seasons))
 
 Install just one ~ they all patch the same Harmony method, so they
 conflict if more than one is present. Pick a vibe.
@@ -60,7 +62,8 @@ KitsuneLoads/
 
 ## How it works
 
-- At init, the DLL lists every PNG/JPG in `<modfolder>/Resources/`. Only the names are
+- At init, the DLL lists every PNG/JPG in `<modfolder>/Resources/` (or, in a pack with a
+  `seasons.txt`, in the folder of the current season). Only the names are
   kept ~ the game loads the picture itself, so nothing sits decoded in memory.
   Want to add your own? Drop an image in, restart, done.
 - V3.x serves the `{background_texture}` binding from the `XUiC_LoadingScreen.CurrentBackground`
@@ -73,6 +76,29 @@ KitsuneLoads/
   texture so 16:9 images fill the full loading-screen rect (~2.33:1) without pillar-bars.
   It skips that when KitsuneUI is loaded, since KitsuneUI's loading layout crops with the
   aspect lock on.
+
+## Seasons
+
+A pack with a `Resources/seasons.txt` keeps its pictures in one folder per season and shows
+the folder that matches the date on your PC. `KitsuneLoadsSeasons` ships with:
+
+```
+Xmas   = 11-01 .. 12-31
+Lunar  = 01-01 .. lunar+15
+Spring = lunar+16 .. 05-31
+Summer = 06-01 .. 08-31
+Fall   = 09-01 .. 10-31
+```
+
+- Each line is `Folder = from .. to`, both ends included. An end is a month-day (`12-01`) or a
+  day counted from Lunar New Year (`lunar`, `lunar-7`, `lunar+15`).
+- A range may run over the year end, and the first line that covers today wins.
+- On a day no line covers, every picture is in the rotation.
+- Add `date = 2027-02-06` to preview the season of that day.
+- The pack checks the date again when the day changes, so no restart is needed at midnight.
+
+In the repo the season folders are empty: run `python tools/build_seasons_pack.py` to copy the
+pictures in from the five single-season packs. The release zip already has them.
 
 ## Build from source
 

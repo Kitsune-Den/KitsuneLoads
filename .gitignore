@@ -21,6 +21,8 @@ KitsuneLoadsSummer/KitsuneLoads.dll
 KitsuneLoadsSummer/KitsuneLoads.pdb
 KitsuneLoadsFall/KitsuneLoads.dll
 KitsuneLoadsFall/KitsuneLoads.pdb
+KitsuneLoadsSeasons/KitsuneLoads.dll
+KitsuneLoadsSeasons/KitsuneLoads.pdb
 
 # release zips (go on GitHub Releases, not in the repo)
 *.zip
@@ -44,3 +46,6 @@ Cats of 7 Days Lunar/
 Cats of 7 Days Spring/
 Cats of 7 Days Summer/
 Cats of 7 Days Fall/
+
+# Seasons pack pictures are copies (tools/build_seasons_pack.py)
+KitsuneLoadsSeasons/Resources/*/
