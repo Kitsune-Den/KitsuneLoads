@@ -27,6 +27,8 @@ Part of the Kitsune modpack.
   under red lanterns, with firecrackers, dumplings and a zombie lion dance (12 widescreen images)
 - **`KitsuneLoadsSpring`** ~ "Cats of 7 Days: Spring": Kevin enjoys the thaw, the blossoms and a
   hilltop picnic while the wasteland turns green and the zombies get in the way (12 widescreen images)
+- **`KitsuneLoadsSummer`** ~ "Cats of 7 Days: Summer": Kevin takes it easy through the heatwave, at the
+  lake and by the campfire while the zombies cook in the sun (12 widescreen images)
 
 Install just one ~ they all patch the same Harmony method, so they
 conflict if more than one is present. Pick a vibe.

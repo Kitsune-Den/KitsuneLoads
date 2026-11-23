@@ -17,6 +17,8 @@ KitsuneLoadsLunar/KitsuneLoads.dll
 KitsuneLoadsLunar/KitsuneLoads.pdb
 KitsuneLoadsSpring/KitsuneLoads.dll
 KitsuneLoadsSpring/KitsuneLoads.pdb
+KitsuneLoadsSummer/KitsuneLoads.dll
+KitsuneLoadsSummer/KitsuneLoads.pdb
 
 # release zips (go on GitHub Releases, not in the repo)
 *.zip
@@ -38,3 +40,4 @@ Cats of 7 Days II/
 Cats of 7 Days Xmas/
 Cats of 7 Days Lunar/
 Cats of 7 Days Spring/
+Cats of 7 Days Summer/
