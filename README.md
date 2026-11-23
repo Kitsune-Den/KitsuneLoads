@@ -29,6 +29,8 @@ Part of the Kitsune modpack.
   hilltop picnic while the wasteland turns green and the zombies get in the way (12 widescreen images)
 - **`KitsuneLoadsSummer`** ~ "Cats of 7 Days: Summer": Kevin takes it easy through the heatwave, at the
   lake and by the campfire while the zombies cook in the sun (12 widescreen images)
+- **`KitsuneLoadsFall`** ~ "Cats of 7 Days: Fall": Kevin pounces through the leaves, guards the pumpkins and
+  eyes the harvest feast while the zombies stumble into the season (12 widescreen images)
 
 Install just one ~ they all patch the same Harmony method, so they
 conflict if more than one is present. Pick a vibe.
