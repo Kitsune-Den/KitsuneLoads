@@ -73,7 +73,9 @@ SCENES = {
                  "small zombies stand looking up at the lights.",
     "minibike": "Golden hour on a cracked country road lined with pink peach blossom trees, the tabby sits on "
                 "the seat of a rusty home-built minibike with small red lanterns hanging from the handlebars and "
-                "a wooden crate of tangerines strapped on the back, petals drifting in the air.",
+                "a wooden crate of tangerines strapped on the back, petals drifting in the air. Hanging from a "
+                "tree on the left, one tall red cloth banner reading “恭喜发财” top to bottom in neat black brush "
+                "calligraphy, the only writing in the picture.",
     "blossoms": "Early morning in a rooftop survivor garden of raised wooden beds, a plum tree in full pink "
                 "blossom with small red lanterns and red ribbons tied in its branches, potted kumquat trees "
                 "heavy with fruit. The tabby is asleep curled up on a warm plank under the tree, petals on its "
@@ -85,7 +87,9 @@ SCENES = {
     "bloodmoon": "Horde night: a huge deep-red blood moon hangs over a dark field like a giant lantern, and a "
                  "row of glowing red paper lanterns runs along the top of a survivor base wall of scrap metal and "
                  "spiked barricades. The tabby sits on watch on the wall beside the lanterns, and in the red "
-                 "distance a long line of zombie silhouettes trudges towards the base.",
+                 "distance a long line of zombie silhouettes trudges towards the base. Hanging on the wall below "
+                 "the lanterns, one wide red cloth banner reading “岁岁平安” left to right in large neat black "
+                 "brush calligraphy, the only writing in the picture.",
 }
 
 
